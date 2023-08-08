@@ -1,0 +1,35 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.navbar {
+    background-color: #f2f6ff !important;
+}
+
+.logo {
+    height: 2.5rem;
+}
+
+.logo img {
+    height: 100%;
+    aspect-ratio: 1/1;
+}
+
+.main-headline {
+    font-size: 3rem;
+}
+
+.sub-heading {
+    font-size: 1.5rem;
+}
+
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col-lg-6 col-12">
+        <img src="{% static 'assets/images/Mobile login-pana.svg' %}" alt="">
+    </div>
+    <div class="col-lg-6 col-12 p-4 row justify-content-center">
+        <div class="col-lg-10">
+
+
+            <h2 class="fw-semibold text-primary-emphasis">New to VaultGuard app? Please signup and maintain your
+                password easily</h2>
+            <div class="mt-4">
+                {% if messages %}
+                {% for message in messages %}
+                <div {% if message.tags %} class="alert alert-{{message.tags}} alert-dismissible fade show" {% endif %}role="alert">
+                    {{message}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+                {% endif %}
+                <form action="" method="post" class="">
+                    {% csrf_token %}
+                    <div class="form-floating mb-3">
+                        {{form.username}}
+                        <label for="floatingInput" class="text-muted">Username</label>
+                        <span class="text-danger">{{form.username.errors}}</span>
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{form.email}}
+                        <label for="floatingInput" class="text-muted">Email address</label>
+                        <span class="text-danger">{{form.email.errors}}</span>
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{form.password1}}
+                        <label for="floatingPassword" class="text-muted">Password</label>
+                        <span class="text-danger">{{form.password1.errors}}</span>
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{form.password2}}
+                        <label for="floatingPassword" class="text-muted">Confirm Passowrd</label>
+                        <span class="text-danger">{{form.password2.errors}}</span>
+                    </div>
+                    <div class="mb-3">
+                        <input type="submit" value="Signup" class="btn btn-success col-12 py-2">
+                    </div>
+                    <div class="divider d-flex align-items-center my-3">
+                        <p class="text-center fw-bold mx-3 mb-0 text-muted">Already have an account?</p>
+                    </div>
+                </form>
+                <a href="{% url 'home:login' %}" class="btn btn-primary col-12 py-2">Login</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
