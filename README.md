@@ -8,6 +8,11 @@ A simple password manager project created using Django, HTML, and CSS.
 * Generate strong passwords for your accounts.
 * Easily search and manage your passwords.
 * Access your passwords from anywhere with a web browser.
+  
+
+**Requirements to run this app:**
+* Python 3.8+
+* Virtualenv
 
 ## Getting Started
 
@@ -16,45 +21,48 @@ A simple password manager project created using Django, HTML, and CSS.
    ```
    git clone https://github.com/GautamSavsaviya/Password-Manager.git
    ```
-2. Install the dependencies by running the following command:
+
+2. Create vitual environment:
+
+   ```
+   virtualenv venv
+   ```
+   
+3. Install the dependencies by running the following command:
 
     ```
     pip install -r requirements.txt
     ```
+4. Move into project folder 'vaaultguard':
 
-3. Run the development server by running the following command:
+   ```
+   cd vualtguard
+   ```
 
-python manage.py runserver
+5. Run following command to migrate all models:
 
-Open your web browser and navigate to http://localhost:8000.
-Usage
-To create a new password, click the "Create Password" button.
+   ```
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+   
+6. Run the development server by running the following command:
 
-Enter the website name, username, and password for the account that you want to create a password for.
+   ```
+   python manage.py runserver
+   ```
 
-Click the "Create Password" button.
+   Open your web browser and navigate to ``` http://127.0.0.1:8000 ```.
 
-To view your passwords, click the "View Passwords" button.
 
-You can search for your passwords by website name, username, or password.
+   **For admin panel first create superuser:**
+   ```
+   python manage.py createsuperuser
+   ```
+   Now go to ```http://127.0.0.1:8000/admin/``` and login.
 
-To edit a password, click the "Edit Password" button.
 
-To delete a password, click the "Delete Password" button.
-
-Contributing
+### Contributing
 This project is open source and contributions are welcome. To contribute, please fork the repository and submit a pull request.
 
-License
-This project is licensed under the MIT License.
 
-You can customize this README file to fit your specific project. For example, you can add more details about the features of your project, how to use it, and how to contribute. You can also add a link to your project's website or documentation.
-
-Here are some additional tips for writing a README file for a GitHub repository:
-
-Keep it short and concise.
-Use clear and concise language.
-Use headings and subheadings to organize the content.
-Use images and screenshots to illustrate the project.
-Include a link to the project's website or documentation.
-Encourage users to star and fork the project.
