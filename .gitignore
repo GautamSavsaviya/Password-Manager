@@ -10,4 +10,4 @@ venv/
 .history
 
 vaultguard/.env.sample
-vaultguard/db.sqlite3
+vaultguard/vaultguard/db.sqlite3
