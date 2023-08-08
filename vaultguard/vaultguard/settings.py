@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-
+import ast
 import os
 from pathlib import Path
 from cryptography.fernet import Fernet
@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-qvp%y86r1hq*yb#c=(d=!#mrjfn&7dpc*g_=dqx(8he+&)58uc"
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -128,5 +128,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # Generate encryt key
-ENCRYPT_KEY = b'Dv2RuNXqbd7YcQTUI6k8FDV47owtTbdywvuLGsEhM28='  # Fernet.generate_key()
+ENCRYPT_KEY = ast.literal_eval(os.getenv('ENCRYPT_KEY'))  # using "Fernet.generate_key()" you can generate your encrypt key
 LOGIN_REDIRECT_URL = 'home:home'
